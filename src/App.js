@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Greeting from './Greeting';
+/*import Greeting from './Greeting';
 import InputName from './InputName';
 import InputAge from './InputAge';
 
@@ -41,6 +41,34 @@ return (
 </div>
 );
 }
-}
+}*/
 
+class App extends Component {
+  state = {
+  showList: false,
+  data: [
+  { name: "maria", age: 23 },
+  { name: "romi", age: 22 }
+  ]
+  }
+  HandleConditional = () => {
+  this.setState({ showList: !this.state.showList })
+  }
+  render() {
+  return (
+  <div>
+  <button onCLick={this.HandleConditional}>Show
+  </button>
+  {this.state.showList === true ?
+  <div>
+  <p>{this.state.data[0].name} -
+  {this.state.data[0].age}</p>
+  <p>{this.state.data[1].name} -
+  {this.state.data[1].age}</p>
+  </div>
+  : ''}
+  </div>
+  )
+  }
+  }
 export default App
